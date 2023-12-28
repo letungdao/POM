@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Guru 99 Bank" parallel="false">
+	<test name="com.guru99bank.login">
+		<classes>
+			<class name="com.guru99bank.login.TC01_CreateAccountAndLogin" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
