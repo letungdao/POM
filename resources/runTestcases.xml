@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Guru 99 Bank" parallel="false">
-	<test name="Run on Chrome">
+	<test name="Run on Chrome"><!-- 
+		<listeners>
+			<listener class-name="commons.TestListener" />
+		</listeners> -->
 		<parameter name="browser" value="Chrome" />
 		<classes>
-			<class name="com.guru99bank.login.TC01_CreateAccountAndLogin" />
-		</classes>
-	</test> <!-- Test --><!-- 
-	<test name="Run on Firefox">
-		<parameter name="browser" value="firefox" />
-		<classes>
-			<class name="com.guru99bank.login.TC01_CreateAccountAndLogin" />
-		</classes>
-	</test> Test -->
-	<test name="Run on ChromeHeadless">
-		<parameter name="browser" value="chromeheadless" />
-		<classes>
-			<class name="com.guru99bank.login.TC01_CreateAccountAndLogin" />
+			<class name="com.risefairsketch.TC01_LuyenTap02" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

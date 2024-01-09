@@ -1,18 +1,19 @@
 package com.guru99bank.login;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
+import commons.TestListener;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.RegisterPage;
 
+@Listeners({TestListener.class})
 public class TC01_CreateAccountAndLogin extends AbstractTest {
 	WebDriver driver;
 	String url = "https://demo.guru99.com/V4";
@@ -28,7 +29,6 @@ public class TC01_CreateAccountAndLogin extends AbstractTest {
 
 	@Test
 	public void TC01_CreateAnAccount() {
-
 		// Login Page
 		System.out.println("Step 01 - Navigate to Login page");
 		loginPage = new LoginPage(driver);
@@ -69,7 +69,7 @@ public class TC01_CreateAccountAndLogin extends AbstractTest {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+//		driver.quit();
 	}
 
 	private LoginPage loginPage;

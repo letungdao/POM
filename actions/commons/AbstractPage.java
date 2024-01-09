@@ -64,6 +64,11 @@ public class AbstractPage {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfAllElements(element));
 	}
+	
+	public void clearText(WebDriver driver, String locator){
+		WebElement element = findAnElement(driver, locator);
+		element.clear();
+	}
 
 	public void waitForElementInvisible(WebDriver driver, String locator) {
 		By xpath = By.xpath(locator);
