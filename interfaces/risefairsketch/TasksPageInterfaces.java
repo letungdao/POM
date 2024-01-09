@@ -15,5 +15,8 @@ public class TasksPageInterfaces {
 	public static final String TXB_SEARCH = "//div[@id='task-table_filter']//input[@placeholder='Search']";
 	public static final String LNK_VIEWTASK = "//table//tr[1]//a[contains(@title,'Task info')]";
 	public static final String PUP_INFOTASK = "//div[@id='ajaxModal']//div[@class='modal-content']";
+	public static final String TXA_COMMENT = "//textarea[@name='description']";
+	public static final String BTN_ADDCOMMENT = "//button[contains(.,'Comment')]";
+	public static final String MSG_POSTCOMMENTSUCCESSFULLY = "//div[@class='app-alert-message']";
 
 }

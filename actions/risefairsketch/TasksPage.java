@@ -96,5 +96,15 @@ public class TasksPage extends AbstractPage {
 		waitForElementVisible(driver, TasksPageInterfaces.PUP_INFOTASK);
 		Assert.assertTrue(driver.findElement(By.xpath(TasksPageInterfaces.PUP_INFOTASK)).isDisplayed());
 	}
+	
+	public void addComments(String comment){
+		sendkeyToElement(driver, TasksPageInterfaces.TXA_COMMENT, comment);
+		clickToElement(driver, TasksPageInterfaces.BTN_ADDCOMMENT);
+	}
+	
+	public void verifyCommentIsAddedSuccessfully(){
+		waitForElementVisible(driver, TasksPageInterfaces.MSG_POSTCOMMENTSUCCESSFULLY);
+		Assert.assertTrue(driver.findElement(By.xpath(TasksPageInterfaces.MSG_POSTCOMMENTSUCCESSFULLY)).isDisplayed());
+	}
 
 }
