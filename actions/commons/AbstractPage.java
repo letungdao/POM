@@ -59,18 +59,39 @@ public class AbstractPage {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
+	public void waitForElementVisible(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		WebElement element = findAnElement(driver, locator);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
 	public void waitForElementsVisible(WebDriver driver, String locator) {
 		List<WebElement> element = findListElement(driver, locator);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfAllElements(element));
 	}
-	
-	public void clearText(WebDriver driver, String locator){
+
+	public void waitForElementsVisible(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		List<WebElement> element = findListElement(driver, locator);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfAllElements(element));
+	}
+
+	public void clearText(WebDriver driver, String locator) {
 		WebElement element = findAnElement(driver, locator);
 		element.clear();
 	}
 
 	public void waitForElementInvisible(WebDriver driver, String locator) {
+		By xpath = By.xpath(locator);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(xpath));
+	}
+
+	public void waitForElementInvisible(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
 		By xpath = By.xpath(locator);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(xpath));
@@ -82,16 +103,48 @@ public class AbstractPage {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
+	public void waitForElementClickable(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		WebElement element = findAnElement(driver, locator);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
 	public void waitForElementPresence(WebDriver driver, String locator) {
 		By xpath = By.xpath(locator);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated(xpath));
 	}
 
+	public void waitForElementPresence(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		By xpath = By.xpath(locator);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated(xpath));
+	}
+
+	// locator = //button[@id='login']
 	public void clickToElement(WebDriver driver, String locator) {
 		WebElement element = findAnElement(driver, locator);
 		waitForElementVisible(driver, locator);
 		element.click();
+	}
+
+	// locator = //button[@id='%s'] %s sẽ thay thế bằng dynamic locator
+	public void clickToElement(WebDriver driver, String locator, String... dynamicLocator) {
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		WebElement element = findAnElement(driver, locator);
+		waitForElementVisible(driver, locator);
+		element.click();
+	}
+
+	public Object clickByJSForWebElement(WebDriver driver, WebElement element) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			return js.executeScript("arguments[0].click();", element);
+		} catch (Exception e) {
+			return e;
+		}
 	}
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {

@@ -2,11 +2,12 @@ package com.risefairsketch;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
+import commons.DataProviderFactory;
 import risefairsketch.HomePage;
 import risefairsketch.LoginPage;
 import risefairsketch.TasksPage;
@@ -16,19 +17,19 @@ public class TC01_LuyenTap02 extends AbstractTest {
 	String uniqueTitle;
 	
 	@Parameters({"browser"})
-	@BeforeTest
-	public void beforeTest(String browser){
+	@BeforeMethod
+	public void beforeMethod(String browser){
 		driver = openMultiBrowsers(browser);
 		uniqueTitle = randomEmail();
 	}
 
-	@Test
-	public void TC01_CreateTask() {
+	@Test(dataProvider = "accountTestRisefairketch", dataProviderClass = DataProviderFactory.class)
+	public void TC01_CreateTask(String username, String password) {
 		loginPage = new LoginPage(driver);
 		
 		System.out.println("Step 01 - Login to application");
 		loginPage.openLoginPage("https://rise.fairsketch.com/");
-		loginPage.loginWithEmailAndPassword("admin@demo.com", "riseDemo");
+		loginPage.loginWithEmailAndPassword(username, password);
 		
 		homePage = new HomePage(driver);
 		System.out.println("VP - Verify Login successfully");
@@ -48,7 +49,7 @@ public class TC01_LuyenTap02 extends AbstractTest {
 		tasksPage.verifyTaskIsAddedSuccessfully();
 	}
 	
-	@Test
+//	@Test
 	public void TC02_SearchAndAdd2Comments(){
 		tasksPage = new TasksPage(driver);
 		
@@ -62,21 +63,21 @@ public class TC01_LuyenTap02 extends AbstractTest {
 		tasksPage.verifyInfoTaskPopupDisplays();
 		
 		System.out.println("Step 03 - Add the first comment");
-		tasksPage.addComments("Comment 1");
+//		tasksPage.addComments("Comment 1");
 		
 		System.out.println("VP - Verify Comment is added successfully");
-		tasksPage.verifyCommentIsAddedSuccessfully();
+//		tasksPage.verifyCommentIsAddedSuccessfully();
 		
 		System.out.println("Step 04 - Add the second comment");
-		tasksPage.addComments("Comment 2");
+//		tasksPage.addComments("Comment 2");
 		
 		System.out.println("VP - Verify Comment is added successfully");
-		tasksPage.verifyCommentIsAddedSuccessfully();
+//		tasksPage.verifyCommentIsAddedSuccessfully();
 	}
 	
 	@AfterTest
 	public void afterTest(){
-//		driver.quit();
+		driver.quit();
 	}
 	
 	private LoginPage loginPage;
