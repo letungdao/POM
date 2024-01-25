@@ -1,8 +1,6 @@
 package risefairsketch;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import commons.AbstractPage;
 
@@ -15,7 +13,12 @@ public class HomePage extends AbstractPage {
 	}
 
 	public void verifyHomePageIsDisplayed() {
-		Assert.assertTrue(driver.findElement(By.xpath(HomePageInterfaces.TXT_USERNAME)).isDisplayed());
+		// verifyPassed(isElementDispalyed(driver,
+		// HomePageInterfaces.TXT_USERNAME), "Home page is displayed", "HomePage
+		// is NOT displayed");
+		String actualTitle = getTitle(driver);
+		String expectedTitle = "HomePage";
+		verifyEqual(actualTitle, expectedTitle, "Home Page is displayed", "Home Page is NOT displayed");
 	}
 
 	public void selectMenu(String menu) {

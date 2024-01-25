@@ -5,6 +5,7 @@
 			<listener class-name="commons.TestListener" />
 		</listeners> -->
 		<parameter name="browser" value="Chrome" />
+		<parameter name="version" value="120" />
 		<classes>
 			<class name="com.risefairsketch.TC01_LuyenTap02" />
 		</classes>

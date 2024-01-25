@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AbstractPage {
+public class AbstractPage extends AbstractTest {
 	WebDriver driver;
 
 	// WebBrowser
@@ -229,4 +229,21 @@ public class AbstractPage {
 			}
 		}
 	}
+
+	public boolean isElementDispalyed(WebDriver driver, String locator) {
+		WebElement element = findAnElement(driver, locator);
+		return element.isDisplayed();
+	}
+	
+	public boolean isElementEnabled(WebDriver driver, String locator) {
+		WebElement element = findAnElement(driver, locator);
+		return element.isEnabled();
+	}
+	
+	public boolean isElementSelected(WebDriver driver, String locator) {
+		WebElement element = findAnElement(driver, locator);
+		return element.isSelected();
+	}
+	
+	
 }

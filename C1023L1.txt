@@ -1,0 +1,2 @@
+2024-01-25 20:27:57,257 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Login to application
+2024-01-25 20:28:17,850 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Login to application

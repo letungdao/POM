@@ -1,7 +1,7 @@
 package com.risefairsketch;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -16,10 +16,10 @@ public class TC01_LuyenTap02 extends AbstractTest {
 	WebDriver driver;
 	String uniqueTitle;
 	
-	@Parameters({"browser"})
+	@Parameters({"browser", "version"})
 	@BeforeMethod
-	public void beforeMethod(String browser){
-		driver = openMultiBrowsers(browser);
+	public void beforeMethod(String browser, String version){
+		driver = openMultiBrowsers(browser, version);
 		uniqueTitle = randomEmail();
 	}
 
@@ -27,7 +27,8 @@ public class TC01_LuyenTap02 extends AbstractTest {
 	public void TC01_CreateTask(String username, String password) {
 		loginPage = new LoginPage(driver);
 		
-		System.out.println("Step 01 - Login to application");
+//		System.out.println("Step 01 - Login to application");
+		log.info("Step 01 - Login to application");
 		loginPage.openLoginPage("https://rise.fairsketch.com/");
 		loginPage.loginWithEmailAndPassword(username, password);
 		
@@ -75,8 +76,8 @@ public class TC01_LuyenTap02 extends AbstractTest {
 //		tasksPage.verifyCommentIsAddedSuccessfully();
 	}
 	
-	@AfterTest
-	public void afterTest(){
+	@AfterMethod
+	public void afterMethod(){
 		driver.quit();
 	}
 	
