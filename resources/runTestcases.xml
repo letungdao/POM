@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Guru 99 Bank" parallel="false">
-	<test name="Run on Chrome"><!-- 
+	<test name="Run on Chrome">
 		<listeners>
 			<listener class-name="commons.TestListener" />
-		</listeners> -->
+			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+			<listener class-name="commons.ExtentReportListener"/>
+		</listeners>
 		<parameter name="browser" value="Chrome" />
 		<parameter name="version" value="120" />
 		<classes>

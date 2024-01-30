@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/webdrivermanager-2.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-2.41.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -34,21 +34,6 @@
 		<appender-ref ref="logfile" />
 		<appender-ref ref="testng" />
 	</category>
-
-	<category name="commons">
-		<priority value="all" />
-		<appender-ref ref="console" />
-		<appender-ref ref="logfile" />
-		<appender-ref ref="testng" />
-	</category>
-
-	<category name="pageObjects">
-		<priority value="all" />
-		<appender-ref ref="console" />
-		<appender-ref ref="logfile" />
-		<appender-ref ref="testng" />
-	</category>
-
 	<root>
 		<priority value="warn" />
 	</root>

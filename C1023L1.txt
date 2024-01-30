@@ -1,2 +1,9 @@
-2024-01-25 20:27:57,257 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Login to application
-2024-01-25 20:28:17,850 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Login to application
+2024-01-30 18:56:38,080 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Open rise fairsketch page
+2024-01-30 18:56:43,208 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 02 - Login with username admin@demo.com
+2024-01-30 18:56:47,338 INFO  com.risefairsketch.TC01_LuyenTap02 - VP - Verify Login successfully
+2024-01-30 18:56:47,363 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 02 - Open page Tasks
+2024-01-30 18:56:48,840 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 03 - Click Add task
+2024-01-30 18:57:00,110 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 01 - Open rise fairsketch page
+2024-01-30 18:57:05,632 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 02 - Login with username client@demo.com
+2024-01-30 18:57:07,702 INFO  com.risefairsketch.TC01_LuyenTap02 - VP - Verify Login successfully
+2024-01-30 18:57:07,739 INFO  com.risefairsketch.TC01_LuyenTap02 - Step 02 - Open page Tasks

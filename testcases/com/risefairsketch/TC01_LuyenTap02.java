@@ -27,26 +27,27 @@ public class TC01_LuyenTap02 extends AbstractTest {
 	public void TC01_CreateTask(String username, String password) {
 		loginPage = new LoginPage(driver);
 		
-//		System.out.println("Step 01 - Login to application");
-		log.info("Step 01 - Login to application");
+		log.info("Step 01 - Open rise fairsketch page");
 		loginPage.openLoginPage("https://rise.fairsketch.com/");
+
+		log.info("Step 02 - Login with username " +username);
 		loginPage.loginWithEmailAndPassword(username, password);
 		
 		homePage = new HomePage(driver);
-		System.out.println("VP - Verify Login successfully");
+		log.info("VP - Verify Login successfully");
 		homePage.verifyHomePageIsDisplayed();
 		
-		System.out.println("Step 02 - Open page Tasks");
+		log.info("Step 02 - Open page Tasks");
 		homePage.selectMenu("tasks");
 		
 		tasksPage = new TasksPage(driver);
-		System.out.println("Step 03 - Click Add task");
+		log.info("Step 03 - Click Add task");
 		tasksPage.clickAddTask();
 		
-		System.out.println("Step 04 - Add a new task");
+		log.info("Step 04 - Add a new task");
 		tasksPage.inputAllInformation(uniqueTitle);
 		
-		System.out.println("VP - Verify Task is added successfully");
+		log.info("VP - Verify Task is added successfully");
 		tasksPage.verifyTaskIsAddedSuccessfully();
 	}
 	
@@ -54,25 +55,25 @@ public class TC01_LuyenTap02 extends AbstractTest {
 	public void TC02_SearchAndAdd2Comments(){
 		tasksPage = new TasksPage(driver);
 		
-		System.out.println("Step 01 - Search task");
+		log.info("Step 01 - Search task");
 		tasksPage.searchWithKeyword(uniqueTitle);
 		
-		System.out.println("Step 02 - Open task info popup");
+		log.info("Step 02 - Open task info popup");
 		tasksPage.clickTaskView();
 		
-		System.out.println("VP - Verify Task info popup display");
+		log.info("VP - Verify Task info popup display");
 		tasksPage.verifyInfoTaskPopupDisplays();
 		
-		System.out.println("Step 03 - Add the first comment");
+		log.info("Step 03 - Add the first comment");
 //		tasksPage.addComments("Comment 1");
 		
-		System.out.println("VP - Verify Comment is added successfully");
+		log.info("VP - Verify Comment is added successfully");
 //		tasksPage.verifyCommentIsAddedSuccessfully();
 		
-		System.out.println("Step 04 - Add the second comment");
+		log.info("Step 04 - Add the second comment");
 //		tasksPage.addComments("Comment 2");
 		
-		System.out.println("VP - Verify Comment is added successfully");
+		log.info("VP - Verify Comment is added successfully");
 //		tasksPage.verifyCommentIsAddedSuccessfully();
 	}
 	

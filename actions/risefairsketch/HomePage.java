@@ -13,12 +13,13 @@ public class HomePage extends AbstractPage {
 	}
 
 	public void verifyHomePageIsDisplayed() {
-		// verifyPassed(isElementDispalyed(driver,
-		// HomePageInterfaces.TXT_USERNAME), "Home page is displayed", "HomePage
-		// is NOT displayed");
-		String actualTitle = getTitle(driver);
-		String expectedTitle = "HomePage";
-		verifyEqual(actualTitle, expectedTitle, "Home Page is displayed", "Home Page is NOT displayed");
+		verifyPassed(isElementDispalyed(driver, HomePageInterfaces.TXT_USERNAME), "Home page is displayed",
+				"HomePage is NOT displayed");
+		// String actualTitle = getTitle(driver);
+		// String expectedTitle = "Dashboard | RISE - Ultimate Project Manager
+		// and CRM";
+		// verifyEqual(actualTitle, expectedTitle, "Home Page is displayed",
+		// "Title display " + actualTitle);
 	}
 
 	public void selectMenu(String menu) {

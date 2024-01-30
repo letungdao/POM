@@ -28,18 +28,12 @@ public class AbstractTest {
 
 	public WebDriver openMultiBrowsers(String browser, String version) {
 		if (browser.equalsIgnoreCase("chrome")) {
-			// System.setProperty("webdriver.chrome.driver",
-			// ".\\resources\\chromedriver.exe");
 			ChromeDriverManager.getInstance().version(version).setup();
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("firefox")) {
-			// System.setProperty("webdriver.gecko.driver",
-			// ".\\resources\\geckodriver.exe");
 			FirefoxDriverManager.getInstance().version(version).setup();
 			driver = new FirefoxDriver();
 		} else if (browser.equalsIgnoreCase("chromeheadless")) {
-			// System.setProperty("webdriver.chrome.driver",
-			// ".\\resources\\chromedriver.exe");
 			ChromeDriverManager.getInstance().version(version).setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
